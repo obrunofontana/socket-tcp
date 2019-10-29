@@ -45,10 +45,10 @@ public class ClienteBruno {
 
                     System.out.println("Seja Bem-vindo à FontanaStore xD \n");
                     System.out.println("Digite a operação que deseja: \n");
-                    System.out.println("1 - Cadastrar Livro \n");
-                    System.out.println("2 - Consultar Livro \n");
-                    System.out.println("3 - Remover Livro \n");
-                    System.out.println("");
+                    System.out.println("1 - Cadastrar Livro");
+                    System.out.println("2 - Consultar Livro");
+                    System.out.println("3 - Remover Livro");
+                    
                     operacao = "";
                     operacao = ler.next();
 
@@ -62,20 +62,20 @@ public class ClienteBruno {
                                 DataOutputStream saida = new DataOutputStream(socket.getOutputStream()); // Saída                
                                 DataInputStream entrada = new DataInputStream(socket.getInputStream()); // Entrada
 
-                                System.out.println("Digite o titulo do livro: \n");
+                                System.out.println("Digite o titulo do livro: ");
                                 titulo = ler.next();
-                                System.out.println("");
-                                System.out.println("Digite o nome do Autor: \n");
+                                
+                                System.out.println("Digite o nome do Autor: ");
                                 autor = ler.next();
-                                System.out.println("");
-                                System.out.println("Digite o ISBN do Livro: \n");
+                                
+                                System.out.println("Digite o ISBN do Livro: ");
                                 isbn = ler.next();
-                                System.out.println("");
-                                System.out.println("Digite o assunto do Livro: \n");
+                                
+                                System.out.println("Digite o assunto do Livro: ");
                                 assunto = ler.next();
-                                System.out.println("");
+                                
 
-                                salvarRegistro = "1 " + isbn + " " + titulo + " " + autor + " " + assunto;
+                                salvarRegistro = "1;" + isbn + ";" + titulo + ";" + autor + ";" + assunto;
 
                                 saida.writeUTF(salvarRegistro);//Envio a mensagem para o servidor
 
@@ -131,7 +131,7 @@ public class ClienteBruno {
                                 }
                                 System.out.println("");
 
-                                consultaRegistro = "2 " + nOpcao + " " + cTermo;
+                                consultaRegistro = "2;" + nOpcao + ";" + cTermo;
 
                                 saida.writeUTF(consultaRegistro);//Envio a mensagem para o servidor
 
@@ -173,7 +173,7 @@ public class ClienteBruno {
 
                                 removeRegistro = nOpcao;
 
-                                saida.writeUTF("3 " + removeRegistro);//Envio a mensagem para o servidor
+                                saida.writeUTF("3;" + removeRegistro);//Envio a mensagem para o servidor
 
                                 //recebo/Aguardo a resposta do server
                                 String response = entrada.readUTF();

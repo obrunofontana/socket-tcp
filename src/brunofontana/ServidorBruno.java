@@ -55,7 +55,7 @@ public class ServidorBruno {
                 System.out.println("Recebeu do cliente " + data);
 
                 //Estou com problemas aqui, se digitar um autor ou assunto ou titulo com 2 palavras ja ferra tudo, por causa do " " espaço em braco... como faço split...
-                String registro[] = data.split(" ");
+                String registro[] = data.split(";");
                 String operacao = registro[0];
                 String resultado = "";
                 //registro[0] = operacao
